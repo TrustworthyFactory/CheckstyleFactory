@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OptetPlugin>
+	<categories name="static">
+		<!-- <category name="SoftwareComplexity"> <evidence name="SoftwareComplexityMetric"/> 
+			</category> <category name="Reliability"> <evidence name="ReliabilityMetric"/> 
+			</category> <category name="Maintainability"> <evidence name="MaintainabilityMetric"/> 
+			</category> -->
+		<category name="Change Cycle/Stability">
+			<evidence name="Compliance with best programing practices" />
+		</category>
+		<category name="Flexibility/Robustness">
+			<evidence name="interceptet errors" />
+		</category>
+	</categories>
+</OptetPlugin>
