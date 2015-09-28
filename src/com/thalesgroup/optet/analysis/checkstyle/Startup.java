@@ -64,6 +64,7 @@ public class Startup implements IStartup{
 	 */
 	private void registerPlugin() {
 		
+		PluginHelper.getInstance().logInfo("register plugin");
 		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
 		URL fileURL = bundle.getEntry("xml/evidences.xml");
 		File file = null;
@@ -72,19 +73,28 @@ public class Startup implements IStartup{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
+		PluginHelper.getInstance().logInfo("register plugin");
 		JAXBContext jaxbContext;
 		try {
+			PluginHelper.getInstance().logInfo("register plugin");
 			jaxbContext = JAXBContext.newInstance(OptetPlugin.class);
+			PluginHelper.getInstance().logInfo("register plugin");
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+			PluginHelper.getInstance().logInfo("register plugin");
 			OptetPlugin conf = (OptetPlugin) jaxbUnmarshaller.unmarshal(file);	
+			PluginHelper.getInstance().logInfo("register plugin");
 			// TODO Auto-generated method stub
 			OrchestrationInterface orchestrator = OrchestrationImpl.getInstance();
 			orchestrator.registerPlugin(Activator.getDefault().PLUGIN_ID, conf, null);
+			PluginHelper.getInstance().logInfo("end register plugin");
 			
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PluginHelper.getInstance().logInfo(e.getMessage());
+		}
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			PluginHelper.getInstance().logInfo(e.getMessage());
 		}
 	}
 
